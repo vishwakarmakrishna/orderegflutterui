@@ -9,4 +9,5 @@ class MyPath {
 
   static String packageScreenKrPath = '/home/package';
   static String neworderScreenKrPath = '/home/neworder';
+  static String accountScreenKrPath = '/home/account';
 }

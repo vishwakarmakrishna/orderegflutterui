@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:orderadd/mypath/mypaths.dart';
+import 'package:orderadd/myuis/myaccountscreen.dart';
 import 'package:orderadd/myuis/myhomescreen.dart';
 import 'package:orderadd/myuis/mynewpackscreen.dart';
 import 'package:orderadd/myuis/mynotiscreen.dart';
@@ -7,6 +8,7 @@ import 'package:orderadd/myuis/mypackagescreen.dart';
 import 'package:orderadd/myuis/mysearchscreen.dart';
 import 'package:orderadd/myuis/myslidemenu.dart';
 import 'package:orderadd/myuis/mysplscreen.dart';
+
 import 'package:vrouter/vrouter.dart';
 
 void main() {
@@ -81,6 +83,18 @@ class MyApp extends StatelessWidget {
             '/Home/neworder',
           ],
           widget: MyNewPackScreen(),
+        ),
+        VWidget(
+          path: MyPath.accountScreenKrPath,
+          aliases: [
+            '/Home/account',
+            '/HOME/account',
+            '/HOME/account',
+            '/Home/account',
+          ],
+          widget: MyAccountScreen(
+            mysizeWidthbox: 0.09,
+          ),
         ),
       ],
     );

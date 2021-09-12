@@ -9,8 +9,6 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:vrouter/vrouter.dart';
 
 class MyHomePage extends StatefulWidget {
-  //const MyMainApp({ Key? key }) : super(key: key);
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -24,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ZStack(
           [
             VStack([
-              KrCustAppBar(mysizeWidthbox: mysizeWidthbox),
+              KrCustAppBar(title: 'Home', mysizeWidthbox: mysizeWidthbox),
               5.heightBox,
               KrCustBody(mysizeWidthbox: mysizeWidthbox),
               5.heightBox,
@@ -65,77 +63,79 @@ class _KrCustNavBarState extends State<KrCustNavBar> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                'Home '
-                    .text
-                    .color(MyCustomColors.orangeCustomColor)
-                    .extraBold
-                    .size(4)
-                    .make(),
-                GestureDetector(
-                  onTap: () => {
-                    context.vRouter.to(MyPath.homeKrPath),
-                  },
-                  child: Icon(
+          GestureDetector(
+            onTap: () => {
+              context.vRouter.to(MyPath.homeKrPath),
+            },
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  'Home '
+                      .text
+                      .color(MyCustomColors.orangeCustomColor)
+                      .extraBold
+                      .size(4)
+                      .make(),
+                  Icon(
                     LineIcons.home,
                     size: mysizeWidthbox * 1,
                     color: MyCustomColors.orangeCustomColor,
                   ),
-                )
-              ]).box.roundedLg.p12.color(Vx.white).outerShadowLg.make(),
+                ]).box.roundedLg.p12.color(Vx.white).outerShadowLg.make(),
+          ),
           10.widthBox,
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                'Order '
-                    .text
-                    .color(MyCustomColors.orangeCustomColor)
-                    .extraBold
-                    .size(4)
-                    .make(),
-                GestureDetector(
-                  onTap: () => {
-                    context.vRouter.to(MyPath.packageScreenKrPath),
-                  },
-                  child: Icon(
+          GestureDetector(
+            onTap: () => {
+              context.vRouter.to(MyPath.packageScreenKrPath),
+            },
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  'Order '
+                      .text
+                      .color(MyCustomColors.orangeCustomColor)
+                      .extraBold
+                      .size(4)
+                      .make(),
+                  Icon(
                     LineIcons.shippingFast,
                     size: mysizeWidthbox * 1,
                     color: MyCustomColors.orangeCustomColor,
                   ),
-                )
-              ]).box.roundedLg.p12.color(Vx.white).outerShadowLg.make(),
+                ]).box.roundedLg.p12.color(Vx.white).outerShadowLg.make(),
+          ),
           10.widthBox,
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                'New '
-                    .text
-                    .color(MyCustomColors.orangeCustomColor)
-                    .extraBold
-                    .size(4)
-                    .make(),
-                GestureDetector(
-                  onTap: () => {
-                    context.vRouter.to(MyPath.neworderScreenKrPath),
-                  },
-                  child: Icon(
+          GestureDetector(
+            onTap: () => {
+              context.vRouter.to(MyPath.neworderScreenKrPath),
+            },
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  'New '
+                      .text
+                      .color(MyCustomColors.orangeCustomColor)
+                      .extraBold
+                      .size(4)
+                      .make(),
+                  Icon(
                     LineIcons.addToShoppingCart,
                     size: mysizeWidthbox * 1,
                     color: MyCustomColors.orangeCustomColor,
                   ),
-                )
-              ]).box.roundedLg.p12.color(Vx.white).outerShadowLg.make(),
+                ]).box.roundedLg.p12.color(Vx.white).outerShadowLg.make(),
+          ),
           10.widthBox,
           GestureDetector(
-            onTap: () => {},
+            onTap: () => {
+              context.vRouter.to(MyPath.accountScreenKrPath),
+            },
             child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -333,7 +333,8 @@ class _KrCustBodyExtraState extends State<KrCustBodyExtra> {
 
 class KrCustAppBar extends StatelessWidget {
   final double mysizeWidthbox;
-  KrCustAppBar({required this.mysizeWidthbox});
+  final String title;
+  KrCustAppBar({required this.mysizeWidthbox, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -357,7 +358,7 @@ class KrCustAppBar extends StatelessWidget {
                 color: MyCustomColors.blueCustomColor,
               ),
             ),
-            'Home'.text.size(mysizeWidthbox).makeCentered(),
+            title.text.size(mysizeWidthbox).makeCentered(),
             mysizeWidthbox.widthBox,
             mysizeWidthbox.widthBox,
             mysizeWidthbox.widthBox,
@@ -408,193 +409,188 @@ class _KrCustBodyState extends State<KrCustBody> {
   bool _switchValue = false;
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: VStack(
-        [
-          VStack(
-            [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Image.asset(
-                    'assets/persons/apala.jpg',
-                    fit: BoxFit.cover,
-                    width: context.mq.size.width * 0.25,
-                    height: context.mq.size.height * 0.15,
-                  ).card.rounded.p8.make(),
-                  VStack([
-                    HStack([
-                      'Welcome'
-                          .text
-                          .size(context.mq.size.width * 0.05)
-                          .makeCentered(),
-                      WidthBox(context.mq.size.width * 0.01),
-                      'Apala'
-                          .text
-                          .center
-                          .size(context.mq.size.width * 0.05)
-                          .color(MyCustomColors.orangeCustomColor)
-                          .makeCentered(),
-                      WidthBox(context.mq.size.width * 0.05),
-                      MyRating(mysizeWidthbox)
-                    ]),
-                    // HeightBox(context.mq.size.height * 0.002),
-                    HStack([
-                      'Zone :'
-                          .text
-                          .size(context.mq.size.width * 0.035)
-                          .makeCentered(),
-                      WidthBox(context.mq.size.width * 0.01),
-                      'A'
-                          .text
-                          .size(context.mq.size.width * 0.05)
-                          .color(MyCustomColors.orangeCustomColor)
-                          .makeCentered(),
-                    ]),
-                    // HeightBox(context.mq.size.height * 0.002),
-                    HStack([
-                      Transform(
-                        transform: Matrix4.rotationX(pi),
-                        alignment: Alignment.center,
-                        origin: Offset(context.percentWidth * -1, 0),
-                        child: Switch(
-                          activeColor: Vx.green400,
-                          value: _switchValue,
-                          activeTrackColor: Vx.green300,
-                          inactiveThumbColor: Colors.redAccent,
-                          inactiveTrackColor: Colors.orange,
-                          onChanged: (bool value) {
-                            setState(() {
-                              _switchValue = value;
-                            });
-                          },
-                        ).h4(context),
-                      ),
-                      _switchValue
-                          ? 'Online'
-                              .text
-                              .size(context.mq.size.width * 0.04)
-                              .color(MyCustomColors.greenCustomColor)
-                              .makeCentered()
-                          : 'Offline'
-                              .text
-                              .size(context.mq.size.width * 0.04)
-                              .color(MyCustomColors.orangeCustomColor)
-                              .makeCentered(),
-                    ]),
+    return VStack(
+      [
+        VStack(
+          [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Image.asset(
+                  'assets/persons/apala.jpg',
+                  fit: BoxFit.cover,
+                  width: context.mq.size.width * 0.25,
+                  height: context.mq.size.height * 0.15,
+                ).card.rounded.p8.make(),
+                VStack([
+                  HStack([
+                    'Welcome'
+                        .text
+                        .size(context.mq.size.width * 0.05)
+                        .makeCentered(),
+                    WidthBox(context.mq.size.width * 0.01),
+                    'Apala'
+                        .text
+                        .center
+                        .size(context.mq.size.width * 0.05)
+                        .color(MyCustomColors.orangeCustomColor)
+                        .makeCentered(),
+                    WidthBox(context.mq.size.width * 0.05),
+                    MyRating(mysizeWidthbox)
                   ]),
-                ],
-              ),
-              VStack(
-                [
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Row(
+                  // HeightBox(context.mq.size.height * 0.002),
+                  HStack([
+                    'Zone :'
+                        .text
+                        .size(context.mq.size.width * 0.035)
+                        .makeCentered(),
+                    WidthBox(context.mq.size.width * 0.01),
+                    'A'
+                        .text
+                        .size(context.mq.size.width * 0.05)
+                        .color(MyCustomColors.orangeCustomColor)
+                        .makeCentered(),
+                  ]),
+                  // HeightBox(context.mq.size.height * 0.002),
+                  HStack([
+                    Transform(
+                      transform: Matrix4.rotationX(pi),
+                      alignment: Alignment.center,
+                      origin: Offset(context.percentWidth * -1, 0),
+                      child: Switch(
+                        activeColor: Vx.green400,
+                        value: _switchValue,
+                        activeTrackColor: Vx.green300,
+                        inactiveThumbColor: Colors.redAccent,
+                        inactiveTrackColor: Colors.orange,
+                        onChanged: (bool value) {
+                          setState(() {
+                            _switchValue = value;
+                            if (_switchValue)
+                              context.vRouter.to(MyPath.neworderScreenKrPath);
+                          });
+                        },
+                      ).h4(context),
+                    ),
+                    _switchValue
+                        ? 'Online'
+                            .text
+                            .size(context.mq.size.width * 0.04)
+                            .color(MyCustomColors.greenCustomColor)
+                            .makeCentered()
+                        : 'Offline'
+                            .text
+                            .size(context.mq.size.width * 0.04)
+                            .color(MyCustomColors.orangeCustomColor)
+                            .makeCentered(),
+                  ]),
+                ]),
+              ],
+            ),
+            VStack(
+              [
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                'Current Batch'
+                                    .text
+                                    .bold
+                                    .color(MyCustomColors.blueCustomColor)
+                                    .size(3.5)
+                                    .make(),
+                              ],
+                            ),
+                            10.heightBox,
+                            Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  'Current Batch'
+                                  'PICKUP IN: '.text.bold.size(5).make(),
+                                  '90 minutes'
                                       .text
                                       .bold
-                                      .color(MyCustomColors.blueCustomColor)
-                                      .size(3.5)
+                                      .color(MyCustomColors.orangeCustomColor)
+                                      .size(4)
                                       .make(),
-                                ],
-                              ),
-                              10.heightBox,
-                              Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    'PICKUP IN: '.text.bold.size(5).make(),
-                                    '90 minutes'
-                                        .text
-                                        .bold
-                                        .color(MyCustomColors.orangeCustomColor)
-                                        .size(4)
-                                        .make(),
-                                  ]),
-                            ]),
-                        Icon(
-                          LineIcons.shippingFast,
-                          size: mysizeWidthbox * 2,
-                          color: MyCustomColors.blueCustomColor,
-                        ),
-                      ]),
-                  VStack(
-                    [
-                      MyPackageCard(
-                        afClick: () => {
-                          context.vRouter.to(MyPath.packageScreenKrPath),
-                        },
-                        mysizeWidthbox: mysizeWidthbox,
-                        packno: '102AS',
-                        packsize: 'Medium',
-                        packquantityno: '12',
-                        packtype: 'Transfer',
-                        packorderno: '3',
+                                ]),
+                          ]),
+                      Icon(
+                        LineIcons.shippingFast,
+                        size: mysizeWidthbox * 2,
+                        color: MyCustomColors.blueCustomColor,
                       ),
-                      MyPackageCard(
-                        afClick: () => {
-                          context.vRouter.to(MyPath.packageScreenKrPath),
-                        },
-                        mysizeWidthbox: mysizeWidthbox,
-                        packno: '102AS',
-                        packsize: 'Medium',
-                        packquantityno: '12',
-                        packtype: 'Delivery',
-                        packorderno: '3',
-                      ),
-                      MyPackageCard(
-                        afClick: () => {
-                          context.vRouter.to(MyPath.packageScreenKrPath),
-                        },
-                        mysizeWidthbox: mysizeWidthbox,
-                        packno: '102AS',
-                        packsize: 'Small',
-                        packquantityno: '4',
-                        packtype: 'Transfer',
-                        packorderno: '1',
-                      )
-                    ],
-                  ),
-                  10.heightBox,
-                ],
-              )
-                  .box
-                  .rounded
-                  .color(Vx.white)
-                  .outerShadowXl
-
-                  // .neumorphic(
-                  //     color: Vx.white, elevation: 15, curve: VxCurve.convex)
-                  .make(),
-            ],
-          ).p16(),
-        ],
-      ),
+                    ]),
+                VStack(
+                  [
+                    MyPackageCard(
+                      afClick: () => {
+                        context.vRouter.to(MyPath.packageScreenKrPath),
+                      },
+                      mysizeWidthbox: mysizeWidthbox,
+                      packno: '102AS',
+                      packsize: 'Medium',
+                      packquantityno: '12',
+                      packtype: 'Transfer',
+                      packorderno: '3',
+                    ),
+                    MyPackageCard(
+                      afClick: () => {
+                        context.vRouter.to(MyPath.packageScreenKrPath),
+                      },
+                      mysizeWidthbox: mysizeWidthbox,
+                      packno: '102AS',
+                      packsize: 'Medium',
+                      packquantityno: '12',
+                      packtype: 'Delivery',
+                      packorderno: '3',
+                    ),
+                    MyPackageCard(
+                      afClick: () => {
+                        context.vRouter.to(MyPath.packageScreenKrPath),
+                      },
+                      mysizeWidthbox: mysizeWidthbox,
+                      packno: '102AS',
+                      packsize: 'Small',
+                      packquantityno: '4',
+                      packtype: 'Transfer',
+                      packorderno: '1',
+                    )
+                  ],
+                ),
+                10.heightBox,
+              ],
+            ).box.rounded.color(Vx.white).outerShadowXl.make(),
+          ],
+          crossAlignment: CrossAxisAlignment.center,
+          alignment: MainAxisAlignment.spaceAround,
+          axisSize: MainAxisSize.max,
+        ).p16(),
+      ],
+      crossAlignment: CrossAxisAlignment.center,
+      alignment: MainAxisAlignment.spaceAround,
+      axisSize: MainAxisSize.max,
     );
   }
 }
 
 class MyRating extends StatelessWidget {
   MyRating(double mysizeWidthbox);
-
-  // const MyRating({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
