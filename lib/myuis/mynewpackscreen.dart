@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:orderadd/extras/mycustcolors.dart';
 import 'package:orderadd/mypath/mypaths.dart';
+import 'package:orderadd/routes/router.dart';
 
 import 'package:velocity_x/velocity_x.dart';
-import 'package:vrouter/vrouter.dart';
 
 class MyNewPackScreen extends StatefulWidget {
   @override
@@ -282,7 +282,7 @@ class KrNewOrderCustAppBar extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () => {
-                context.vRouter.to(MyPath.homeKrPath),
+                context.pushNamed(MyPath.homePath),
               },
               icon: Icon(
                 LineIcons.alternateLongArrowLeft,

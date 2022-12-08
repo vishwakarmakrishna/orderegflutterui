@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:orderadd/extras/mycustcolors.dart';
 import 'package:orderadd/mypath/mypaths.dart';
+import 'package:orderadd/routes/router.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:vrouter/vrouter.dart';
 
 class Myslidemenu extends StatelessWidget {
   @override
@@ -19,7 +19,7 @@ class Myslidemenu extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () => {
-                  context.vRouter.to(MyPath.homeKrPath),
+                  context.pushNamed(MyPath.homePath),
                 },
                 child: 'Myslidemenu'
                     .text

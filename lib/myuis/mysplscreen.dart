@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:orderadd/extras/mycustcolors.dart';
 import 'package:orderadd/mypath/mypaths.dart';
+import 'package:orderadd/routes/router.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:vrouter/vrouter.dart';
 
 class SplScreen extends StatefulWidget {
   const SplScreen({Key? key}) : super(key: key);
@@ -22,7 +22,7 @@ class _SplScreenState extends State<SplScreen> {
     Timer(
       Duration(seconds: 3),
       () {
-        context.vRouter.to(MyPath.homeKrPath);
+        context.pushNamed(MyPath.homePath);
       },
     );
   }

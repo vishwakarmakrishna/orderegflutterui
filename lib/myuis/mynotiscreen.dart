@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 // import 'package:orderadd/extras/mycustcolors.dart';
 import 'package:orderadd/mypath/mypaths.dart';
+import 'package:orderadd/routes/router.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:vrouter/vrouter.dart';
 
 class MynotiScreen extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class MynotiScreen extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () => {
-                  context.vRouter.to(MyPath.homeKrPath),
+                  context.pushNamed(MyPath.homePath),
                 },
                 child: 'MynotiScreen'
                     .text

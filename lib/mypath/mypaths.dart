@@ -1,13 +1,13 @@
 class MyPath {
-  // static String loginKrPath = '/login';
-  // static String createAccKrPath = '/signup';
-  static String searchKrPath = '/home/search';
-  static String sidemenuKrPath = '/home/sidemenu';
-  static String notiKrPath = '/home/noti';
-  static String homeKrPath = '/home';
-  static String splashKrPath = '/';
+  // static String loginPath = '/login';
+  // static String createAccPath = '/signup';
+  static String searchPath = 'search';
+  static String sidemenuPath = 'sidemenu';
+  static String notiPath = 'noti';
+  static String homePath = 'home';
+  static String splashPath = '/';
 
-  static String packageScreenKrPath = '/home/package';
-  static String neworderScreenKrPath = '/home/neworder';
-  static String accountScreenKrPath = '/home/account';
+  static String packageScreenPath = 'package';
+  static String neworderScreenPath = 'neworder';
+  static String accountScreenPath = 'account';
 }

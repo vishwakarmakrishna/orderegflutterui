@@ -1,12 +1,10 @@
 import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:orderadd/extras/mycustcolors.dart';
 import 'package:orderadd/mypath/mypaths.dart';
+import 'package:orderadd/routes/router.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:vrouter/vrouter.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -65,7 +63,7 @@ class _KrCustNavBarState extends State<KrCustNavBar> {
         children: [
           GestureDetector(
             onTap: () => {
-              context.vRouter.to(MyPath.homeKrPath),
+              context.pushNamed(MyPath.homePath),
             },
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -88,7 +86,7 @@ class _KrCustNavBarState extends State<KrCustNavBar> {
           10.widthBox,
           GestureDetector(
             onTap: () => {
-              context.vRouter.to(MyPath.packageScreenKrPath),
+              context.pushNamed(MyPath.packageScreenPath),
             },
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -111,7 +109,7 @@ class _KrCustNavBarState extends State<KrCustNavBar> {
           10.widthBox,
           GestureDetector(
             onTap: () => {
-              context.vRouter.to(MyPath.neworderScreenKrPath),
+              context.pushNamed(MyPath.neworderScreenPath),
             },
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -134,7 +132,7 @@ class _KrCustNavBarState extends State<KrCustNavBar> {
           10.widthBox,
           GestureDetector(
             onTap: () => {
-              context.vRouter.to(MyPath.accountScreenKrPath),
+              context.pushNamed(MyPath.accountScreenPath),
             },
             child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -293,7 +291,7 @@ class _KrCustBodyExtraState extends State<KrCustBodyExtra> {
                 ).p4(),
                 GestureDetector(
                   onTap: () => {
-                    context.vRouter.to(MyPath.packageScreenKrPath),
+                    context.pushNamed(MyPath.packageScreenPath),
                   },
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -350,7 +348,7 @@ class KrCustAppBar extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () => {
-                context.vRouter.to(MyPath.sidemenuKrPath),
+                context.pushNamed(MyPath.sidemenuPath),
               },
               child: Icon(
                 LineIcons.bars,
@@ -368,7 +366,7 @@ class KrCustAppBar extends StatelessWidget {
               color: MyCustomColors.orangeCustomColor,
               child: GestureDetector(
                 onTap: () => {
-                  context.vRouter.to(MyPath.notiKrPath),
+                  context.pushNamed(MyPath.notiPath),
                 },
                 child: Icon(
                   LineIcons.bellAlt,
@@ -379,7 +377,7 @@ class KrCustAppBar extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () => {
-                context.vRouter.to(MyPath.searchKrPath),
+                context.pushNamed(MyPath.searchPath),
               },
               child: Icon(
                 LineIcons.search,
@@ -469,7 +467,7 @@ class _KrCustBodyState extends State<KrCustBody> {
                           setState(() {
                             _switchValue = value;
                             if (_switchValue)
-                              context.vRouter.to(MyPath.neworderScreenKrPath);
+                              context.pushNamed(MyPath.neworderScreenPath);
                           });
                         },
                       ).h4(context),
@@ -540,7 +538,7 @@ class _KrCustBodyState extends State<KrCustBody> {
                   [
                     MyPackageCard(
                       afClick: () => {
-                        context.vRouter.to(MyPath.packageScreenKrPath),
+                        context.pushNamed(MyPath.packageScreenPath),
                       },
                       mysizeWidthbox: mysizeWidthbox,
                       packno: '102AS',
@@ -551,7 +549,7 @@ class _KrCustBodyState extends State<KrCustBody> {
                     ),
                     MyPackageCard(
                       afClick: () => {
-                        context.vRouter.to(MyPath.packageScreenKrPath),
+                        context.pushNamed(MyPath.packageScreenPath),
                       },
                       mysizeWidthbox: mysizeWidthbox,
                       packno: '102AS',
@@ -562,7 +560,7 @@ class _KrCustBodyState extends State<KrCustBody> {
                     ),
                     MyPackageCard(
                       afClick: () => {
-                        context.vRouter.to(MyPath.packageScreenKrPath),
+                        context.pushNamed(MyPath.packageScreenPath),
                       },
                       mysizeWidthbox: mysizeWidthbox,
                       packno: '102AS',
